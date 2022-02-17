@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const asigSchema = new Schema({
     idCurso: { type: Schema.Types.ObjectId, ref: 'Cursos' },
-    idMaestro: { type: Schema.Types.ObjectId, ref: 'Usuarios' },
+    idAlumno: { type: Schema.Types.ObjectId, ref: 'Usuarios' },
     cAsignados: Number
 })
 

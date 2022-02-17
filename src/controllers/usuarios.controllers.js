@@ -24,14 +24,13 @@ function RegistrarMaestro(req, res) {
                             if(err) return res.status(500).send({ mensaje : 'Error en la peticion' })
                             if(!usuariosGuardados) return res.status(500).send({ mensaje: 'Error al guardar el Usuario' })
     
-                            return res.status(200).send({ token: jwt.crearToken(usuariosEncontrados)})
+                            return res.status(200).send({ usuarios: usuariosGuardados })
                         })
                     })                    
                 }
             })
     } else {
-        return res.status(404)
-            .send({ mensaje : 'Debe ingresar los parametros obligatorios'})
+        return res.status(404).send({ mensaje : 'Debe ingresar los parametros obligatorios'})
     }
 
 }
@@ -114,8 +113,7 @@ function eliminarUsuarios(req, res) {
 
         Usuarios.findByIdAndDelete(idUs, (err, usuariosEliminados)=>{
             if(err) return res.status(500).send({ mensaje: 'Error en la peticion' });
-            if(!usuariosEliminados) return res.status(500)
-                .send({ mensaje: 'Error al eliminar el usuario' })
+            if(!usuariosEliminados) return res.status(500).send({ mensaje: 'Error al eliminar el usuario' })
     
             return res.status(200).send({ usuarios: usuariosEliminados });
         })

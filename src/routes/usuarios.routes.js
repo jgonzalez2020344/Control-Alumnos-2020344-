@@ -5,7 +5,7 @@ const api = express.Router();
 
 api.post('/registrarMaestro', controladorUsuarios.RegistrarMaestro);
 api.post('/registrarAlumno', controladorUsuarios.RegistrarAlumno);
-api.post('/login',md_autenticacion.Auth, controladorUsuarios.Login);
+api.post('/login', controladorUsuarios.Login);
 api.put('/editarUsuarios/:idUsuarios', md_autenticacion.Auth, controladorUsuarios.editarUsuarios);
 api.delete('/eliminarUsuarios/:idUsuarios', md_autenticacion.Auth, controladorUsuarios.eliminarUsuarios);
 
